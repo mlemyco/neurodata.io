@@ -18,8 +18,96 @@
             
             <!-- this is the generic one which could be deleted after everything gets customized -->
             {% for subsection in section.sections %}
-                <div class="capitalize font-bold text-base py-2">
+                <div class="font-bold text-base py-2">
                     {{subsection.name}}
+					{% if subsection.id == "current_appointments" %}
+						<div class="font-normal ml-4"> 
+							<span > 09/19 -- now Joint Appointment, Department of Biostatistics, Johns Hopkins University (JHU) </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/18 -- now Director of Biomedical Data Science Focus Area </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 01/17 -- now Co-Founder, gigantum </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 05/16 -- now Visiting Scientist , Howard Hughes Medical Institute, Janelia Research Campus </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 01/16 -- now Co-Founder, d8alab </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/15 -- now Joint Appointment, Department of Applied Mathematics and Statistics </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/15 -- now Steering Committee , Kavli Neuroscience Discovery Institute (KNDI) </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/15 -- 07/18 Co-Developer, Computational Medicine Minor </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							05/15 -- 07/17 Co-Founder and Faculty Advisor, MedHacks 
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/14 -- now Assistant Professor, Department of Biomedical Engineering, Johns Hopkins University (JHU) </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/14 -- now Core Faculty , Institute for Computational Medicine  (ICM)  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/14 -- now Core Faculty , Center for Imaging Science (CIS)  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/14 -- now Joint Appointment, Department of Neuroscience  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/14 -- now Joint Appointment, Department of Computer Science  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/14 -- now Assistant Research Faculty, Human Language Technology Center of Excellence  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/14 -- 08/18 Director of Undergraduate Studies, Institute for Computational Medicine  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 10/12 -- now Affiliated Faculty, Institute for Data Intensive Engineering and Sciences  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 01/11 -- now Co-Founder & Co-Director,  NeuroData (formerly Open Connectome Project)  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 10/12 -- 08/14 Endeavor Scientist, Child Mind Institute  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/12 -- 08/14 Affiliated Faculty, Kenan Institute for Ethics Duke University </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 08/12 -- 08/14 Adjunct Faculty, Department of Computer Science  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 12/09 -- 01/11 Post-Doctoral Fellow, Department of Applied Mathematics and Statistics, Supervised by Carey E. Priebe, Johns Hopkins University, Research Statistics of populations of networks. </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 07/04 -- 07/12 Chief Data Scientist, Global Domain Partners,  LLC  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 06/01 -- 09/01 Research Assistant, Prof. Randy O'Reilly,  Dept.~of Psychology University of Colorado </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 06/00 -- 09/00 Clinical Engineer, Johns Hopkins Hospital  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 06/99 -- 08/99 Research Assistant under Dr. Jeffrey Williams, Dept. of Neurosurgery,  Johns Hopkins Hospital  </span>
+						</div>
+						<div class="font-normal ml-4" > 
+							<span > 06/98 -- 08/98 Research Assistant under Professor Kathy Cho, Dept. of Pathology,  Johns Hopkins School of Medicine  </span>
+						</div>
+					{% endif %}
+
+					{% if subsection.id == "current_appointments" %}
+
+					{% endif %}
+
                     {% for subsubsection in subsection.sections %}
                         <div class="font-normal underline text-base py-2">
                             {{subsubsection.name}}
@@ -28,7 +116,8 @@
                 </div>
             {% endfor %}
 
-            <!-- Publications -->
+
+            <!-- Peer-Reviewed Publications -->
             {% for publication in section.publications %}
                 {% set PUBS = 'content/pubs/pubs.bib'|load_bibtex %}
 
@@ -36,8 +125,10 @@
                     <span class="capitalize font-bold text-base">{{publication.name}}</span>
                     {% if publication.id == "peer_reviewed" %}
                         {% set pubs = section.entries.peer_reviewed %}
-                    {% else %}
-                        {% set pubs = [] %}
+                    {% endif %}
+
+                    {% if publication.id == "pre_prints" %}
+                        {% set pubs = section.entries.pre_prints %}
                     {% endif %}
                     
                     <ol reversed class="list-decimal ml-8">
@@ -56,6 +147,7 @@
                     </ol>
                 </div>
             {% endfor %}
+            <!-- END Peer-Reviewed Publications -->
 
             <!-- awards -->
             {% for recognition in section.recognitions %}

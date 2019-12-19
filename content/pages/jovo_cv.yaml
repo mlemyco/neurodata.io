@@ -8,6 +8,7 @@ sections:
   - name: Demographic and Personal Information
     sections:
       - name: Current Appointments
+        id: current_appointments
       - name: Personal Data
       - name: Education and Training
       - name: Professional Experience
@@ -15,8 +16,8 @@ sections:
     publications:
       - name: Peer reviewed scientific articles (accepted, in press, or published)
         id: peer_reviewed
-      - name: Books, Chapters, Monographs
-        id: chapters
+      - name: Pre-Prints 
+        id: pre_prints
       - name: Other media (films, videos, CD-ROMS, slide sets, etc.)
         id: media
     entries: !g.doc /content/research/publications.html
@@ -55,12 +56,16 @@ sections:
   - name: Recognition
     recognitions:
       - name: Awards, honors and distinctions
+        id: awards
         awards: !g.doc /content/about/awards.html
       - name: Invited Talks, Panels
         talk-sections:
           - name: Regional/JHMI
+            id: regional
           - name: National
+            id: national
           - name: International
+            id: international
   - name: Other Professional Accomplishments
     sections:
       - name: Proceedings / Conference Papers
